@@ -1,0 +1,39 @@
+.calendar {
+  margin: 0;
+  padding: 0;
+  height: 500px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+}
+
+.day {
+  border-bottom: 1px solid #dadce0;
+  border-right: 1px solid lightgray;
+  border-top: 1px solid lightgray;
+  text-align: center;
+  padding-top: 5px;
+  margin-top: 1px;
+  font-size: 12px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+}
+
+.name {
+  padding-bottom: 5px;
+}
+
+.weekend {
+  color: lightblue;
+}
+
+.selected {
+  background-color: lightblue;
+  color: white;
+}
