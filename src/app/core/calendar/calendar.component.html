@@ -1,0 +1,24 @@
+<div class="calendar">
+  <div class="day" *ngFor="let days of testArr; let i = index">
+    <div class="container" [routerLink]="['/details', days._id]">
+      <div
+        class="weekend"
+        *ngIf="
+          days.dayOfWeek === 'Sunday' || days.dayOfWeek === 'Saturday';
+          else elseBlock
+        "
+      >
+        <div class="name" *ngIf="i < 7">
+          <h1>{{ days.dayOfWeek }}</h1>
+        </div>
+        <h2>{{ days.day }}</h2>
+      </div>
+      <ng-template #elseBlock>
+        <div class="name" *ngIf="i < 7">
+          <h1>{{ days.dayOfWeek }}</h1>
+        </div>
+        <h2>{{ days.day }}</h2>
+      </ng-template>
+    </div>
+  </div>
+</div>
