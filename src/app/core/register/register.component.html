@@ -36,10 +36,11 @@
         name="password"
         id="password"
         formControlName="password"
-        placeholder="********"
+        placeholder="****"
         [class.input-error]="
           (form.get('password').touched &&
-            form.get('password').errors?.required) ||
+            form.get('password').errors?.required &&
+            form.get('password').errors?.rePasswordValidator) ||
           form.get('password').errors?.minlength
         "
       />
@@ -47,12 +48,36 @@
     <p
       *ngIf="
         (form.get('password').touched &&
-          form.get('password').errors?.required) ||
+          form.get('password').errors?.required &&
+          form.get('password').errors?.rePasswordValidator) ||
         form.get('password').errors?.minlength
       "
       class="error"
     >
       Password should be at least 5 characters long
+    </p>
+    <div class="field">
+      <label for="rePassword">Repeat Password:</label>
+      <input
+        type="password"
+        name="rePassword"
+        id="rePassword"
+        formControlName="rePassword"
+        placeholder="********"
+        [class.input-error]="
+          form.get('rePassword').touched &&
+          form.get('rePassword').errors?.rePasswordValidator
+        "
+      />
+    </div>
+    <p
+      *ngIf="
+        form.get('rePassword').touched &&
+        form.get('rePassword').errors?.rePasswordValidator
+      "
+      class="error"
+    >
+      Passwords should match
     </p>
   </fieldset>
 

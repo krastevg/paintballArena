@@ -5,6 +5,7 @@ import { DayDetailComponent } from './core/day-detail/day-detail.component';
 import { HomeComponent } from './core/home/home.component';
 import { LoginComponent } from './core/login/login.component';
 import { NotfoundComponent } from './core/notfound/notfound.component';
+import { RegisterComponent } from './core/register/register.component';
 
 const routes: Routes = [
   {
@@ -28,6 +29,11 @@ const routes: Routes = [
   {
     path: 'details/:id',
     component: DayDetailComponent,
+  },
+
+  {
+    path: 'register',
+    component: RegisterComponent,
   },
   {
     path: '**',

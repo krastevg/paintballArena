@@ -7,6 +7,8 @@ import { HeaderComponent } from './header/header.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { DayDetailComponent } from './day-detail/day-detail.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -16,8 +18,9 @@ import { DayDetailComponent } from './day-detail/day-detail.component';
     CalendarComponent,
     NotfoundComponent,
     DayDetailComponent,
+    RegisterComponent,
   ],
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, ReactiveFormsModule, FormsModule],
   exports: [
     HomeComponent,
     LoginComponent,
@@ -25,6 +28,7 @@ import { DayDetailComponent } from './day-detail/day-detail.component';
     CalendarComponent,
     NotfoundComponent,
     DayDetailComponent,
+    RegisterComponent,
   ],
 })
 export class CoreModule {}
