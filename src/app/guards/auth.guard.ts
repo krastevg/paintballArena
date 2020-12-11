@@ -6,7 +6,7 @@ import {
   RouterStateSnapshot,
 } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
-import { UserService } from '../user.service';
+import { UserService } from '../services/user.service';
 
 @Injectable({ providedIn: 'root' })
 export class AuthGuard implements CanActivate {
@@ -16,18 +16,24 @@ export class AuthGuard implements CanActivate {
     private cookieService: CookieService
   ) {}
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if (this.userService.isLogged && !!this.cookieService.get('paint')) {
-      // logged in so return true
-      return true;
+  async canActivate(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): Promise<boolean> {
+    try {
+      const result = await this.userService.checkAuth();
+      console.log(result.message);
+      if (this.userService.isLogged && result.flag) {
+        // logged in so return true
+        return true;
+      }
+    } catch (err) {
+      alert(err);
+      // not logged in so redirect to login
+      this.userService.currentUser = null;
+      this.cookieService.delete('paint');
+      this.router.navigate(['/login']);
+      return false;
     }
-
-    // not logged in so redirect to login
-    this.userService.currentUser = null;
-    // console.log(this.cookieService.getAll());
-    // console.log(!!this.cookieService.get('paint'));
-    // console.log('im here thats why');
-    this.router.navigate(['/login']);
-    return false;
   }
 }

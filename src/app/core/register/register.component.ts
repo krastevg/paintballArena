@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UserService } from 'src/app/user.service';
+import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
 import {
   rePasswordValidatorFactory,
   usernameValidator,
@@ -14,7 +15,12 @@ import {
 export class RegisterComponent implements OnInit {
   form: FormGroup;
   isLoading = false;
-  constructor(private fb: FormBuilder, private userService: UserService) {
+  apiError: string;
+  constructor(
+    private fb: FormBuilder,
+    private userService: UserService,
+    private router: Router
+  ) {
     const passwordControl = this.fb.control('', [
       Validators.required,
       Validators.minLength(5),
@@ -43,9 +49,11 @@ export class RegisterComponent implements OnInit {
       next: (resData) => {
         this.isLoading = false;
         console.log(resData);
+        this.router.navigate(['/home']);
       },
       error: (err) => {
         this.isLoading = false;
+        this.apiError = err;
         console.error(err);
       },
     });
