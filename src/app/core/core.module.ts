@@ -9,6 +9,7 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { DayDetailComponent } from './day-detail/day-detail.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { RegisterComponent } from './register/register.component';
     NotfoundComponent,
     DayDetailComponent,
     RegisterComponent,
+    ProfileComponent,
   ],
   imports: [CommonModule, RouterModule, ReactiveFormsModule, FormsModule],
   exports: [
