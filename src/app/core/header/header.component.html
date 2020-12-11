@@ -1,2 +1,18 @@
-<p>header works!</p>
-<div class="body"></div>
+<nav>
+  <div *ngIf="!userService.isLogged; else elseBlock">
+    <ul>
+      <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
+      <li><a routerLink="/login" routerLinkActive="active">Sign In</a></li>
+      <li><a routerLink="/register" routerLinkActive="active">Register</a></li>
+    </ul>
+  </div>
+
+  <ng-template #elseBlock>
+    <ul>
+      <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
+      <li><a routerLink="/reserve" routerLinkActive="active">Reserve</a></li>
+      <li><a routerLink="/profile" routerLinkActive="active">Profile</a></li>
+      <li><div class="link" (click)="userService.logout()">Log Out</div></li>
+    </ul>
+  </ng-template>
+</nav>

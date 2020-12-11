@@ -1,6 +1,6 @@
-<form class="login" [formGroup]="form" (ngSubmit)="submitHandler()">
+<form class="register" [formGroup]="form" (ngSubmit)="submitHandler()">
   <fieldset>
-    <h2>Login Form</h2>
+    <h2>Register Form</h2>
     <div class="field">
       <label for="username">Username:</label>
       <input
@@ -81,5 +81,5 @@
     </p>
   </fieldset>
 
-  <button [disabled]="form.invalid || isLoading">Login</button>
+  <button [disabled]="form.invalid || isLoading">Register</button>
 </form>
