@@ -57,4 +57,5 @@
   </fieldset>
 
   <button [disabled]="form.invalid || isLoading">Login</button>
+  <p *ngIf="!!apiError" class="error">{{ apiError }}</p>
 </form>
