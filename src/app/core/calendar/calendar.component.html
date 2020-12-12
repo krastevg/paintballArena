@@ -20,7 +20,7 @@
         }"
         *ngIf="
           days._id != 'xxxxxx' &&
-            today <= days.date &&
+            today < days.date &&
             (days.firstFrame.length === 0 ||
               days.secondFrame.length === 0 ||
               days.thirdFrame.length === 0);

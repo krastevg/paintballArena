@@ -1,1 +1,67 @@
-<p>{{ dayId }}</p>
+<app-loading *ngIf="isLoading; else elseBlock"></app-loading>
+<ng-template #elseBlock>
+  <div class="dateDiv">
+    <h2>
+      {{ dayData.dayOfWeek }} {{ dayData.date }} {{ dayData.month }}
+      {{ dayData.year }}
+    </h2>
+  </div>
+
+  <form class="register" [formGroup]="form" (ngSubmit)="submitHandler()">
+    <fieldset>
+      <div class="field">
+        <label for="frame">Timeframe:</label>
+        <select
+          [class.input-error]="
+            form.get('frame').touched && form.get('frame').errors?.required
+          "
+          name="frame"
+          id="frame"
+          formControlName="frame"
+        >
+          <option *ngFor="let option of options" [ngValue]="option">
+            {{ option }}
+          </option>
+        </select>
+      </div>
+
+      <p
+        *ngIf="form.get('frame').touched && form.get('frame').errors?.required"
+        class="error"
+      >
+        Must choose timeframe !
+      </p>
+
+      <div class="field">
+        <label for="people">People:</label>
+        <input
+          type="text"
+          name="people"
+          id="people"
+          formControlName="people"
+          placeholder="6"
+          [class.input-error]="
+            (form.get('people').touched &&
+              form.get('people').errors?.required) ||
+            form.get('people').errors?.min ||
+            form.get('people').errors?.max
+          "
+        />
+      </div>
+
+      <p
+        *ngIf="
+          (form.get('people').touched && form.get('people').errors?.required) ||
+          form.get('people').errors?.min ||
+          form.get('people').errors?.max
+        "
+        class="error"
+      >
+        People must be between 6 and 20
+      </p>
+      <div class="price">Price: {{ form.get("people").value * 20 }} leva</div>
+    </fieldset>
+    <button [disabled]="form.invalid || isLoading">Reserve</button>
+    <p *ngIf="!!apiError" class="error">{{ apiError }}</p>
+  </form>
+</ng-template>
