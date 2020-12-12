@@ -34,14 +34,6 @@ export class CalendarComponent implements OnInit {
     'Saturday',
   ];
 
-  // firstDay = new Date(
-  //   `${
-  //     this.months[this.date.getMonth()]
-  //   } 1, ${this.date.getFullYear()} 00:00:00`
-  // );
-
-  // testArr = [];
-  // counter = this.firstDay.getDay();
   month: IMonth;
   isLoading: boolean;
   today: number;
@@ -50,33 +42,7 @@ export class CalendarComponent implements OnInit {
     this.today = new Date().getDate();
   }
 
-  // changeCounter(): void {
-  //   if (this.counter <= 5) {
-  //     this.counter++;
-  //   } else {
-  //     this.counter = 0;
-  //   }
-  // }
-
   ngOnInit(): void {
-    // this.counter = 1;
-    // for (let i = 0; i < this.days[this.date.getMonth()]; i++) {
-    //   this.testArr.push({
-    //     day: i + 1,
-    //     dayOfWeek: this.dayOfWeek[this.counter],
-    //     month: this.months[this.firstDay.getMonth()],
-    //     _id: 'xxxxxxxxxxxxxxxxxxxxxxxx1',
-    //   });
-    //   this.changeCounter();
-    // }
-    // this.testArr.unshift({
-    //   day: '',
-    //   dayOfWeek: 'test',
-    //   month: '',
-    //   _id: 'xxxxxx33331',
-    // });
-    // console.log(this.testArr);
-
     this.calendarService.getMonth().subscribe({
       next: (data) => {
         this.month = data[0];
