@@ -10,6 +10,7 @@ import { DayDetailComponent } from './day-detail/day-detail.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
+import { LoadingComponent } from './loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ProfileComponent } from './profile/profile.component';
     DayDetailComponent,
     RegisterComponent,
     ProfileComponent,
+    LoadingComponent,
   ],
   imports: [CommonModule, RouterModule, ReactiveFormsModule, FormsModule],
   exports: [
@@ -31,6 +33,7 @@ import { ProfileComponent } from './profile/profile.component';
     NotfoundComponent,
     DayDetailComponent,
     RegisterComponent,
+    LoadingComponent,
   ],
 })
 export class CoreModule {}
