@@ -1,3 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Squada+One&display=swap");
+* {
+  font-family: "Squada One", cursive;
+}
 .calendar {
   margin: 0;
   padding: 0;
@@ -33,7 +37,18 @@
   color: lightblue;
 }
 
-.selected {
-  background-color: lightblue;
-  color: white;
+.disabled {
+  color: gray;
+  border: medium solid gray;
+}
+
+.headline {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.headline h1 {
+  color: rgba(212, 111, 16, 0.897);
+  line-height: 100px;
+  text-align: center;
 }
