@@ -1,6 +1,8 @@
+import { IDay } from './day';
+
 export interface IReservation {
   madeAt: string;
-  day: string;
+  day: IDay;
   price: number;
   user: string;
   hours: string;
