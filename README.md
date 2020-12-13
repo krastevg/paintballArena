@@ -1,14 +1,27 @@
 # PaintballApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.1.
+This is an app that lets you make reservations for a paintball court. The reservations are made on a day basis. Days which have passed or are fill cannot be accsessed. Each day has 3 timeframes which can be reserved from one user account only. 
 
-## Development server
+## How to get it up and running
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Clone the repository and run npm install
+change backEnd api string in environments.ts
+Start the server with ng serve
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
+## ROUTES
+
+/home The index route of the app no Authentication needed. Users can log in and register from here. IF authentication is provided users can make reservations
+
+/reserve Auth: required ; Makes a call to the back end api and retrives information for all the days in the current month. Clicking on a day redirects to /details/:id if that day is not full or if it has not passed
+
+
+/details/:id Auth: required ; Makes a call to the back end api and retrives information for the day which id is provided. Lets you make a reservation from the remaining free time frames
+
+
+/profile  Auth: required ; Makes a call to the back end api and retrives information for the currently logged in users reservations.
+
 
 ## Build
 
