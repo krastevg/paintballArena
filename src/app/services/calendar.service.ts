@@ -3,12 +3,13 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IDay } from '../interfaces/day';
 import { IMonth } from '../interfaces/month';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CalendarService {
-  apiString: string; // `http://localhost:3000/months?month=January&year=2020`;
+  apiString: string; // `${environment.apiUrl}/months?month=January&year=2020`;
   date: Date;
   months = [
     'January',
@@ -45,7 +46,7 @@ export class CalendarService {
       } 1, ${this.date.getFullYear()} 00:00:00`
     );
 
-    this.apiString = `http://localhost:3000/months?month=${
+    this.apiString = `${environment.apiUrl}/months?month=${
       this.months[this.date.getMonth()]
     }&year=${this.date.getFullYear()}`;
   }

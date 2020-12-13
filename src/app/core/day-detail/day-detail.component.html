@@ -1,14 +1,14 @@
-<app-loading *ngIf="isLoading; else elseBlock"></app-loading>
-<ng-template #elseBlock>
-  <div class="dateDiv">
-    <h2>
-      {{ dayData.dayOfWeek }} {{ dayData.date }} {{ dayData.month }}
-      {{ dayData.year }}
-    </h2>
-  </div>
+<div class="container">
+  <app-loading *ngIf="isLoading; else elseBlock"></app-loading>
+  <ng-template #elseBlock>
+    <div class="dateDiv">
+      <h2>
+        {{ dayData.dayOfWeek }} {{ dayData.date }} {{ dayData.month }}
+        {{ dayData.year }}
+      </h2>
+    </div>
 
-  <form class="register" [formGroup]="form" (ngSubmit)="submitHandler()">
-    <fieldset>
+    <form class="register" [formGroup]="form" (ngSubmit)="submitHandler()">
       <div class="field">
         <label for="frame">Timeframe:</label>
         <select
@@ -35,7 +35,7 @@
       <div class="field">
         <label for="people">People:</label>
         <input
-          type="text"
+          type="number"
           name="people"
           id="people"
           formControlName="people"
@@ -60,8 +60,11 @@
         People must be between 6 and 20
       </p>
       <div class="price">Price: {{ form.get("people").value * 20 }} leva</div>
-    </fieldset>
-    <button [disabled]="form.invalid || isLoading">Reserve</button>
-    <p *ngIf="!!apiError" class="error">{{ apiError }}</p>
-  </form>
-</ng-template>
+
+      <button class="btn" [disabled]="form.invalid || isLoading">
+        Reserve
+      </button>
+      <p *ngIf="!!apiError" class="error">{{ apiError }}</p>
+    </form>
+  </ng-template>
+</div>

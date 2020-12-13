@@ -30,7 +30,7 @@
 
 .fullscrean-video-wrap {
   position: absolute;
-  top: 70px;
+  top: 48px;
   left: 0;
   width: 100%;
   height: 100vh;
@@ -46,7 +46,7 @@
   height: 100vh; /*  100vh  */
   width: 100%; /*  100vw  */
   position: absolute;
-  top: 70px;
+  top: 48px;
   left: 0;
   background: #0c1316;
   z-index: 1;
@@ -56,29 +56,65 @@
 .div-content {
   background: rgb(238, 138, 15);
   color: black;
-
   z-index: 2;
   height: 300px;
+  display: inline;
+}
+.div-content-logged {
+  background: rgb(238, 138, 15);
+  color: black;
+  z-index: 2;
+  height: 300px;
+  display: inline;
+  margin: 0 auto;
+}
+
+.div-content-logged h1 {
+  background: rgb(238, 138, 15);
+  font-size: 50px;
+  font-family: "Orbitron", sans-serif;
+  margin-bottom: 0;
+}
+.div-content-logged p {
+  background: rgb(238, 138, 15);
+  font-size: 1.5rem;
+  font-family: "Orbitron", sans-serif;
+  display: block;
+  padding: 2rem;
+}
+
+.infoBlock {
+  background: rgb(238, 138, 15);
 }
 
 .div-content h1 {
+  background: rgb(238, 138, 15);
   font-size: 50px;
   font-family: "Orbitron", sans-serif;
   margin-bottom: 0;
 }
 .div-content p {
+  background: rgb(238, 138, 15);
   font-size: 1.5rem;
   font-family: "Orbitron", sans-serif;
   display: block;
-  padding-bottom: 2rem;
+  padding: 2rem;
 }
-
 .div-btn {
-  background: black;
+  background: rgb(238, 138, 15);
   color: #fff;
   font-size: 1.2rem;
   padding: 1rem 2rem;
   text-decoration: none;
+}
+
+.div-btn > a {
+  background-color: black;
+}
+
+.div-btn :hover {
+  background: #fff;
+  color: black;
 }
 
 .section {

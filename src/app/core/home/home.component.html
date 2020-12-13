@@ -4,21 +4,28 @@
       <video src="{{ videolink }}" autoplay="true" loop="true"></video>
     </div>
     <div class="div-overlay"></div>
-    <div class="div-content">
-      <div *ngIf="!userService.isLogged; else elseBlock">
+    <div class="div-content" *ngIf="!userService.isLogged; else elseBlock">
+      <div class="infoBlock">
         <h1>THE ARENA AWAITS</h1>
         <p>
           Don`t miss out on a adrenalin full, blood pumping adventure ! Gather
           some friends and jump right in !
         </p>
-        <a routerLink="/login" class="div-btn">Sign In</a>
+        <div class="div-btn">
+          <a routerLink="/login" class="div-btn">Sign In</a>
+        </div>
       </div>
-
-      <ng-template #elseBlock>
-        <h1>Welcome {{ userService.currentUser.username }} !</h1>
-        <p>Nice to see you here! What are you waiting for ?</p>
-        <a routerLink="/reserve" class="div-btn">RESERVE</a>
-      </ng-template>
     </div>
+    <ng-template #elseBlock>
+      <div class="div-content-logged">
+        <div class="infoBlock">
+          <h1>Welcome {{ userService.currentUser.username }} !</h1>
+          <p>Nice to see you here! What are you waiting for ?</p>
+          <div class="div-btn">
+            <a routerLink="/reserve" class="div-btn">RESERVE</a>
+          </div>
+        </div>
+      </div>
+    </ng-template>
   </div>
 </div>

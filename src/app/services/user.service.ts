@@ -5,6 +5,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { IUser } from '../interfaces/user';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +15,7 @@ export class UserService {
     return !!this.currentUser;
   }
 
-  apiString = 'http://localhost:3000';
+  apiString = `${environment.apiUrl}`;
   currentUser: IUser;
   constructor(
     private http: HttpClient,
@@ -47,6 +48,7 @@ export class UserService {
   }
 
   logout(): void {
+    console.log('im called !');
     this.currentUser = null;
     this.cookieService.delete('paint');
     this.router.navigate(['/login']);

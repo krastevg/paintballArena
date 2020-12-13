@@ -1,5 +1,5 @@
-<form class="register" [formGroup]="form" (ngSubmit)="submitHandler()">
-  <fieldset>
+<div class="container">
+  <form class="register" [formGroup]="form" (ngSubmit)="submitHandler()">
     <h2>Register Form</h2>
     <div class="field">
       <label for="username">Username:</label>
@@ -39,8 +39,8 @@
         placeholder="****"
         [class.input-error]="
           (form.get('password').touched &&
-            form.get('password').errors?.required &&
-            form.get('password').errors?.rePasswordValidator) ||
+            form.get('password').errors?.required) ||
+          form.get('password').errors?.rePasswordValidator ||
           form.get('password').errors?.minlength
         "
       />
@@ -48,8 +48,8 @@
     <p
       *ngIf="
         (form.get('password').touched &&
-          form.get('password').errors?.required &&
-          form.get('password').errors?.rePasswordValidator) ||
+          form.get('password').errors?.required) ||
+        form.get('password').errors?.rePasswordValidator ||
         form.get('password').errors?.minlength
       "
       class="error"
@@ -79,8 +79,8 @@
     >
       Passwords should match
     </p>
-  </fieldset>
 
-  <button [disabled]="form.invalid || isLoading">Register</button>
-  <p *ngIf="!!apiError" class="error">{{ apiError }}</p>
-</form>
+    <button class="btn" [disabled]="form.invalid || isLoading">Register</button>
+    <p *ngIf="!!apiError" class="error">{{ apiError }}</p>
+  </form>
+</div>

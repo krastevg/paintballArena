@@ -1,6 +1,6 @@
-<form class="login" [formGroup]="form" (ngSubmit)="submitHandler()">
-  <fieldset>
-    <h2>Login Form</h2>
+<div class="container">
+  <form class="login" [formGroup]="form" (ngSubmit)="submitHandler()">
+    <h2>Login</h2>
     <div class="field">
       <label for="username">Username:</label>
       <input
@@ -54,8 +54,8 @@
     >
       Password should be at least 5 characters long
     </p>
-  </fieldset>
 
-  <button [disabled]="form.invalid || isLoading">Login</button>
-  <p *ngIf="!!apiError" class="error">{{ apiError }}</p>
-</form>
+    <button class="btn" [disabled]="form.invalid || isLoading">Login</button>
+    <p *ngIf="!!apiError" class="error">{{ apiError }}</p>
+  </form>
+</div>

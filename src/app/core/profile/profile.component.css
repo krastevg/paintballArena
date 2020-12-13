@@ -16,7 +16,7 @@
   overflow: hidden;
   list-style: none;
   border: solid 3px black;
-  background: orange;
+  background: rgb(238, 138, 15);
   text-align: center;
   align-items: center;
 }
@@ -41,7 +41,7 @@
   overflow: hidden;
   list-style: none;
   border: solid 3px black;
-  background: orange;
+  background: rgb(238, 138, 15);
   text-align: center;
   align-items: center;
 }
@@ -53,7 +53,7 @@
   overflow: hidden;
   list-style: none;
   border: solid 3px black;
-  background: orange;
+  background: rgb(238, 138, 15);
   text-align: center;
   align-items: center;
 }
@@ -73,16 +73,16 @@
   display: inline-block;
   width: 25%;
   padding-top: 2px;
-  background-color: orange;
+  background-color: rgb(238, 138, 15);
 }
 
 .fillColor {
-  background-color: orange;
+  background-color: rgb(238, 138, 15);
 }
 
 h2,
 h3 {
-  background-color: orange;
+  background-color: rgb(238, 138, 15);
 }
 
 .cancel-btn {
@@ -94,7 +94,7 @@ h3 {
 }
 
 h1 {
-  color: orange;
+  color: rgb(238, 138, 15);
   line-height: 100px;
   text-align: center;
 }
