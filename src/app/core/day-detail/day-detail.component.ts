@@ -64,7 +64,7 @@ export class DayDetailComponent implements OnInit {
     // do request
     this.reservationService
       .makeReservation(
-        data,
+        { people: data.people, hours: data.frame },
         this.dayId,
         this.userService.currentUser._id,
         Number(data.people) * 20,

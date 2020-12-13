@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Squada+One&display=swap");
+* {
+  font-family: "Squada One", cursive;
+}
+.Rtable {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 0 3em 0;
+  padding: 10px;
+}
+.Rtable-cell {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+  padding: 0.8em 1.2em;
+  overflow: hidden;
+  list-style: none;
+  border: solid 3px black;
+  background: orange;
+  text-align: center;
+  align-items: center;
+}
+
+/* Table column sizing
+================================== */
+.Rtable--2cols > .Rtable-cell {
+  width: 50%;
+}
+.Rtable--3cols > .Rtable-cell {
+  width: 33.33%;
+}
+.Rtable--4cols > .Rtable-cell {
+  width: 25%;
+}
+
+.Rtable-cell-full {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+  padding-bottom: 10px;
+  overflow: hidden;
+  list-style: none;
+  border: solid 3px black;
+  background: orange;
+  text-align: center;
+  align-items: center;
+}
+.Rtable-cell-two {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 25%;
+  padding-top: 5px;
+  overflow: hidden;
+  list-style: none;
+  border: solid 3px black;
+  background: orange;
+  text-align: center;
+  align-items: center;
+}
+.Rtable--5cols > .Rtable-cell {
+  width: 20%;
+}
+.Rtable--6cols > .Rtable-cell {
+  width: 16.6%;
+}
+
+.inside {
+  display: inline-block;
+  width: 25%;
+}
+
+.inside-two {
+  display: inline-block;
+  width: 25%;
+  padding-top: 2px;
+  background-color: orange;
+}
+
+.fillColor {
+  background-color: orange;
+}
+
+h2,
+h3 {
+  background-color: orange;
+}
+
+.cancel-btn {
+  background-color: red;
+  border: black solid;
+  cursor: pointer;
+  margin: 0 auto;
+  width: 100px;
+}
+
+h1 {
+  color: orange;
+  line-height: 100px;
+  text-align: center;
+}

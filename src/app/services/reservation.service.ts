@@ -33,4 +33,28 @@ export class ReservationService {
         )
       );
   }
+
+  getReservation(userId): Observable<IReservation[]> {
+    return this.http.get<IReservation[]>(
+      `http://localhost:3000/reservation/getByUser/${userId}`
+    );
+  }
+
+  deleteReservation(reservationId, dayid, frame): Observable<any> {
+    return this.http
+      .delete<IReservation>(
+        `http://localhost:3000/reservation/delete/${reservationId}`
+      )
+      .pipe(
+        tap((res) => console.log('from Service', res)),
+        concatMap((res: IReservation) =>
+          this.http.patch(
+            `http://localhost:3000/day/${dayid}?type=delete&frame=${frame}`,
+            {
+              reservId: res._id,
+            }
+          )
+        )
+      );
+  }
 }
