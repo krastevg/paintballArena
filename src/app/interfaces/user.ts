@@ -1,7 +1,5 @@
 export interface IUser {
-  username: string;
-  password: string;
-  _id: string;
-  __v: string;
+  email: string;
+  id: string;
   reservations: string[];
 }

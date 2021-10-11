@@ -2,6 +2,10 @@
 * {
   margin: 0;
   padding: 0;
-  overflow: hidden;
-  background-color: #565d61;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: rgb(89, 89, 89);
 }

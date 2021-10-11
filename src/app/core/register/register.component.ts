@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import {
   rePasswordValidatorFactory,
-  usernameValidator,
+  emailValidator,
 } from 'src/app/validators/validator';
 
 @Component({
@@ -26,9 +26,9 @@ export class RegisterComponent implements OnInit {
       Validators.minLength(5),
     ]);
     this.form = this.fb.group({
-      username: [
+      email: [
         '',
-        [Validators.required, Validators.minLength(5), usernameValidator],
+        [Validators.required, Validators.minLength(5), emailValidator],
       ],
       password: passwordControl,
       rePassword: [

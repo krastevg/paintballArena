@@ -24,7 +24,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     this.isLoading = true;
     this.reservationService
-      .getReservation(this.userService.currentUser._id)
+      .getReservation(this.userService.currentUser.id)
       .subscribe({
         next: (data) => {
           this.reservations = data;

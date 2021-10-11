@@ -1,6 +1,6 @@
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 
-export function usernameValidator(
+export function emailValidator(
   control: AbstractControl
 ): ValidationErrors | null {
   let { value } = control;
@@ -9,8 +9,11 @@ export function usernameValidator(
     return null;
   }
 
-  const isValid = /^[A-Za-z0-9]{5,20}$/.test(value);
-  return isValid ? null : { usernameValidator: true };
+  const isValid =
+    /^([\w!#$%&'*+\-\/=?^_`{|\.]{3,64})@([\w\.]{3,253})\.([a-z]{2,3})$/.test(
+      value
+    );
+  return isValid ? null : { emailValidator: true };
 }
 
 export function rePasswordValidatorFactory(

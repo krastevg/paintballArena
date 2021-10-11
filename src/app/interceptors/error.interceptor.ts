@@ -18,10 +18,15 @@ export class ErrorInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<any>> {
     return next.handle(request).pipe(
       catchError((err) => {
-        console.log(err);
-        let msg = err.error.error.message || err.statusText;
-        if (msg.includes('E11000 duplicate key error')) {
-          msg = 'Username already taken!';
+        let msg;
+        console.log(err.statusText);
+        if (err.statusText === 'Unknown Error') {
+          msg = 'Something went wrong, Please try again later !';
+        } else {
+          msg = err.error.error.message || err.statusText;
+          if (msg.includes('E11000 duplicate key error')) {
+            msg = 'This email is already in use!';
+          }
         }
         return throwError(msg);
       })

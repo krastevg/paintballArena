@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IMonth } from 'src/app/interfaces/month';
+import { IDay } from 'src/app/interfaces/day';
 import { CalendarService } from 'src/app/services/calendar.service';
 
 @Component({
@@ -8,50 +8,34 @@ import { CalendarService } from 'src/app/services/calendar.service';
   styleUrls: ['./calendar.component.css'],
 })
 export class CalendarComponent implements OnInit {
-  // date = new Date();
-  // months = [
-  //   'January',
-  //   'February',
-  //   'March',
-  //   'April',
-  //   'May',
-  //   'June',
-  //   'July',
-  //   'August',
-  //   'September',
-  //   'October',
-  //   'November',
-  //   'December',
-  // ];
-  // days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-  dayOfWeek = [
-    'Sunday',
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday',
-  ];
-
-  month: IMonth;
   isLoading: boolean;
-  today: number;
+  selectedDay: IDay | null;
+  minDate: Date;
+  isDisabled: boolean;
+  isTouched: boolean;
   constructor(private calendarService: CalendarService) {
     this.isLoading = true;
-    this.today = new Date().getDate();
+    this.minDate = new Date(); // should return today's date
+    this.isTouched = false;
   }
 
   ngOnInit(): void {
-    this.calendarService.getMonth().subscribe({
-      next: (data) => {
-        this.month = data[0];
-        this.month.days = this.calendarService.addEmpty(
-          this.dayOfWeek[this.calendarService.firstDay.getDay()],
-          this.month.days
-        );
-        console.log(this.month);
-        this.isLoading = false;
+    this.isLoading = false;
+    this.isDisabled = false;
+  }
+
+  onSelect(date: Date): Promise<IDay> {
+    if (this.isDisabled) {
+      return;
+    }
+    this.isDisabled = true; // disbale the input so the user cannot select another date while the first query has not ended
+    this.isTouched = true;
+    // call service here and await it after the data is gathered send it to the day-query component
+    this.calendarService.getDay(date).subscribe({
+      next: (response) => {
+        console.log(response);
+        this.selectedDay = response;
+        this.isDisabled = false;
       },
       error: (err) => {
         console.log(err);

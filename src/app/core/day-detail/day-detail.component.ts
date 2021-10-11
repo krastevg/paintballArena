@@ -66,7 +66,7 @@ export class DayDetailComponent implements OnInit {
       .makeReservation(
         { people: data.people, hours: data.frame },
         this.dayId,
-        this.userService.currentUser._id,
+        this.userService.currentUser.id,
         Number(data.people) * 20,
         frame[data.frame]
       )
@@ -85,15 +85,14 @@ export class DayDetailComponent implements OnInit {
   }
 
   checkOptions(): void {
-    if (this.dayData.firstFrame.length === 0) {
-      this.options.push('08:00 - 12:00');
-    }
-
-    if (this.dayData.secondFrame.length === 0) {
-      this.options.push('13:00 - 17:00');
-    }
-    if (this.dayData.thirdFrame.length === 0) {
-      this.options.push('17:00 - 21:00');
-    }
+    // if (this.dayData.firstFrame.length === 0) {
+    //   this.options.push('08:00 - 12:00');
+    // }
+    // if (this.dayData.secondFrame.length === 0) {
+    //   this.options.push('13:00 - 17:00');
+    // }
+    // if (this.dayData.thirdFrame.length === 0) {
+    //   this.options.push('17:00 - 21:00');
+    // }
   }
 }

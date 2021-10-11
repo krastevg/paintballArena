@@ -9,7 +9,6 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 1rem;
   line-height: 1.5;
-  color: #333;
   overflow-x: hidden;
 }
 
@@ -57,16 +56,19 @@
   background: rgb(238, 138, 15);
   color: black;
   z-index: 2;
-  height: 300px;
+  height: 400px;
+  padding-top: 10%;
   display: inline;
+  margin: 0 auto;
 }
 .div-content-logged {
   background: rgb(238, 138, 15);
   color: black;
   z-index: 2;
-  height: 300px;
   display: inline;
   margin: 0 auto;
+  height: 400px;
+  padding-top: 10%;
 }
 
 .div-content-logged h1 {

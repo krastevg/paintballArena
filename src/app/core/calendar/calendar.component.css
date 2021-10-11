@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Squada+One&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Squada+One&display=swap");
 * {
   font-family: "Squada One", cursive;
   background-color: #565d61;
@@ -6,23 +6,21 @@
 .calendar {
   margin: 0;
   padding: 0;
-  height: 500px;
+  height: 600px;
   width: 100%;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(5, 1fr);
-}
+} */
 
-.day {
-  /* border-bottom: 1px solid #dadce0;
-  border-right: 1px solid lightgray;
-  border-top: 1px solid lightgray; */
+/* .day {
   text-align: center;
   padding-top: 5px;
   margin-top: 1px;
   font-size: 12px;
   cursor: pointer;
   width: 100%;
+  height: 80px;
 }
 
 .container {
@@ -48,6 +46,12 @@
   margin: 0 auto;
 }
 
+.taken {
+  background-color: red;
+  margin: 2px;
+  color: black;
+}
+
 .headline h1 {
   color: rgb(238, 138, 15);
   line-height: 100px;
@@ -60,4 +64,20 @@
 }
 .borders:not(.weekend) {
   color: rgb(238, 138, 15);
+} */
+
+.container {
+  overflow: scroll;
+}
+
+.calendar-card {
+  width: 40rem;
+  margin: 0 auto;
+  margin-top: 5rem;
+  margin-bottom: 1rem;
+}
+
+mat-calendar {
+  width: 30rem;
+  margin: 0 auto;
 }

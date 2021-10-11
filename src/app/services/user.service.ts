@@ -35,7 +35,7 @@ export class UserService {
 
   register(data: any): Observable<IUser> {
     return this.http
-      .post(`${this.apiString}/user/register`, data, { withCredentials: true })
+      .post(`${this.apiString}/user`, data, { withCredentials: true })
       .pipe(tap((user: IUser) => (this.currentUser = user)));
   }
 

@@ -1,0 +1,14 @@
+<mat-card *ngIf="isTouched; else elseBlock">
+  <mat-card-title *ngIf="!isDisabled; else spinnerBlock">{{
+    dayData.month
+  }}</mat-card-title>
+  <ng-template #spinnerBlock>
+    <mat-spinner></mat-spinner>
+  </ng-template>
+</mat-card>
+
+<ng-template #elseBlock>
+  <mat-card>
+    <mat-card-title>No day has been selected</mat-card-title>
+  </mat-card>
+</ng-template>

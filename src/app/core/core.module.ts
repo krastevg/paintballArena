@@ -11,6 +11,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LoadingComponent } from './loading/loading.component';
+import { MaterialModule } from '../material/material.module';
+import { DayQueryComponent } from './day-query/day-query.component';
 
 @NgModule({
   declarations: [
@@ -23,8 +25,15 @@ import { LoadingComponent } from './loading/loading.component';
     RegisterComponent,
     ProfileComponent,
     LoadingComponent,
+    DayQueryComponent,
   ],
-  imports: [CommonModule, RouterModule, ReactiveFormsModule, FormsModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MaterialModule,
+  ],
   exports: [
     HomeComponent,
     LoginComponent,
@@ -34,6 +43,7 @@ import { LoadingComponent } from './loading/loading.component';
     DayDetailComponent,
     RegisterComponent,
     LoadingComponent,
+    DayQueryComponent,
   ],
 })
 export class CoreModule {}

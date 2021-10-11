@@ -1,7 +1,7 @@
 <app-loading *ngIf="isLoading; else loadedBlock"></app-loading>
 
-<ng-template #loadedBlock>
-  <div class="headline">
+<ng-template class="container" #loadedBlock>
+  <!-- <div class="headline">
     <h1>{{ month.name }} - {{ month.year }}</h1>
   </div>
 
@@ -13,18 +13,16 @@
           name: true,
           container: true,
           weekend: days.dayOfWeek === 'Sunday' || days.dayOfWeek === 'Saturday',
-          borders: true,
-          disabled:
-            days.firstFrame.length === 1 &&
-            days.secondFrame.length === 1 &&
-            days.thirdFrame.length === 1
+          borders: true
         }"
         *ngIf="
           days._id != 'xxxxxx' &&
             today < days.date &&
-            (days.firstFrame.length === 0 ||
-              days.secondFrame.length === 0 ||
-              days.thirdFrame.length === 0);
+            !(
+              !!days.firstFrame.length &&
+              !!days.secondFrame.length &&
+              !!days.thirdFrame.length
+            );
           else elseBlock
         "
       >
@@ -32,6 +30,15 @@
           <h1>{{ days.dayOfWeek }}</h1>
         </div>
         <h2>{{ days.date }}</h2>
+        <div class="taken" *ngIf="days.firstFrame.length === 1">
+          08:00-12:00
+        </div>
+        <div class="taken" *ngIf="days.secondFrame.length === 1">
+          13:00-17:00
+        </div>
+        <div class="taken" *ngIf="days.thirdFrame.length === 1">
+          17:00-21:00
+        </div>
       </div>
       <ng-template #elseBlock>
         <div
@@ -47,8 +54,29 @@
             <h1>{{ days.dayOfWeek }}</h1>
           </div>
           <h2 *ngIf="days.date > 0">{{ days.date }}</h2>
+          <div class="taken" *ngIf="days.firstFrame.length === 1">
+            08:00-12:00
+          </div>
+          <div class="taken" *ngIf="days.secondFrame.length === 1">
+            13:00-17:00
+          </div>
+          <div class="taken" *ngIf="days.thirdFrame.length === 1">
+            17:00-21:00
+          </div>
         </div>
       </ng-template>
     </div>
-  </div>
+  </div> -->
+
+  <mat-card class="calendar-card">
+    <mat-calendar
+      [minDate]="minDate"
+      (selectedChange)="onSelect($event)"
+    ></mat-calendar>
+  </mat-card>
+  <app-day-query
+    [isTouched]="isTouched"
+    [isDisabled]="isDisabled"
+    [dayData]="selectedDay"
+  ></app-day-query>
 </ng-template>

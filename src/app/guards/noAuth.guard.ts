@@ -23,9 +23,11 @@ export class NoAuthGuard implements CanActivate {
     if (!this.userService.isLogged && !this.cookieService.get('paint')) {
       return true;
     }
-
-    alert('You are already logged in !');
-
+    alert('You were logged out and will be redirected to the login page');
+    // not logged in so redirect to login
+    this.userService.currentUser = null;
+    this.cookieService.delete('paint');
+    this.router.navigate(['/login']);
     return false;
   }
 }

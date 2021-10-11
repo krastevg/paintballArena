@@ -11,6 +11,7 @@
           Don`t miss out on a adrenalin full, blood pumping adventure ! Gather
           some friends and jump right in !
         </p>
+        <button mat-raised-button>Testiubg</button>
         <div class="div-btn">
           <a routerLink="/login" class="div-btn">Sign In</a>
         </div>
@@ -19,7 +20,7 @@
     <ng-template #elseBlock>
       <div class="div-content-logged">
         <div class="infoBlock">
-          <h1>Welcome {{ userService.currentUser.username }} !</h1>
+          <h1>Welcome {{ userService.currentUser.email }} !</h1>
           <p>Nice to see you here! What are you waiting for ?</p>
           <div class="div-btn">
             <a routerLink="/reserve" class="div-btn">RESERVE</a>

@@ -1,11 +1,10 @@
 export interface IDay {
-  date: number;
-  dayOfWeek: string;
+  day: number;
+  weekday: string;
   month: string;
   year: number;
-  firstFrame: string[];
-  secondFrame: string[];
-  thirdFrame: string[];
+  timeframes: number[];
+  reservationsMade: string[];
   _id: string;
   __v: string;
 }

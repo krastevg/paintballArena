@@ -2,32 +2,29 @@
   <form class="login" [formGroup]="form" (ngSubmit)="submitHandler()">
     <h2>Login</h2>
     <div class="field">
-      <label for="username">Username:</label>
+      <label for="email">Email:</label>
       <input
         type="text"
-        name="username"
-        id="username"
-        placeholder="paintbaLLover"
-        formControlName="username"
+        name="email"
+        id="email"
+        placeholder="example@example.com"
+        formControlName="email"
         [class.input-error]="
-          (form.get('username').touched &&
-            form.get('username').errors?.required) ||
-          form.get('username').errors?.minlength ||
-          form.get('username').errors?.usernameValidator
+          (form.get('email').touched && form.get('email').errors?.required) ||
+          form.get('email').errors?.minlength ||
+          form.get('email').errors?.emailValidator
         "
       />
     </div>
     <p
       *ngIf="
-        (form.get('username').touched &&
-          form.get('username').errors?.required) ||
-        form.get('username').errors?.minlength ||
-        form.get('username').errors?.usernameValidator
+        (form.get('email').touched && form.get('email').errors?.required) ||
+        form.get('email').errors?.minlength ||
+        form.get('email').errors?.emailValidator
       "
       class="error"
     >
-      Username should be at least 5 characters long and contain only numbers and
-      letters
+      Please enter a valid email address!
     </p>
     <div class="field">
       <label for="password">Password:</label>
@@ -54,8 +51,8 @@
     >
       Password should be at least 5 characters long
     </p>
-
     <button class="btn" [disabled]="form.invalid || isLoading">Login</button>
+
     <p *ngIf="!!apiError" class="error">{{ apiError }}</p>
   </form>
 </div>
