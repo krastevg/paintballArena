@@ -29,9 +29,6 @@ export class LoginComponent implements OnInit {
       password: ['', [Validators.required, Validators.minLength(5)]],
     });
   }
-  // const passwordControl = this.fb.control(['', [Validators.required, Validators.minLength(5)]])
-  // password: passwordControl,
-  // rePassword: ['', [Validators.required, Validators.minLength(5), rePasswordValidatorFactory(passwordControl)]]
   submitHandler(): void {
     const data = this.form.value;
     this.isLoading = true;

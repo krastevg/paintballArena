@@ -1,7 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap");
-
 * {
-  font-family: "Orbitron", sans-serif;
   color: rgb(238, 138, 15);
 }
 
@@ -19,7 +16,6 @@ select {
 
 h2 {
   text-align: center;
-  font-family: "Orbitron";
 }
 
 .btn {

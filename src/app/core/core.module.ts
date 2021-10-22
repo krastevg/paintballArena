@@ -6,13 +6,14 @@ import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { NotfoundComponent } from './notfound/notfound.component';
-import { DayDetailComponent } from './day-detail/day-detail.component';
+import { ReservationDetailComponent } from './reservation-detail/reservation-detail.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LoadingComponent } from './loading/loading.component';
 import { MaterialModule } from '../material/material.module';
 import { DayQueryComponent } from './day-query/day-query.component';
+import { OnlinePaymentComponent } from './online-payment/online-payment.component';
 
 @NgModule({
   declarations: [
@@ -21,11 +22,12 @@ import { DayQueryComponent } from './day-query/day-query.component';
     HeaderComponent,
     CalendarComponent,
     NotfoundComponent,
-    DayDetailComponent,
+    ReservationDetailComponent,
     RegisterComponent,
     ProfileComponent,
     LoadingComponent,
     DayQueryComponent,
+    OnlinePaymentComponent,
   ],
   imports: [
     CommonModule,
@@ -40,7 +42,7 @@ import { DayQueryComponent } from './day-query/day-query.component';
     HeaderComponent,
     CalendarComponent,
     NotfoundComponent,
-    DayDetailComponent,
+    ReservationDetailComponent,
     RegisterComponent,
     LoadingComponent,
     DayQueryComponent,

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DayDetailComponent } from './day-detail.component';
+import { OnlinePaymentComponent } from './online-payment.component';
 
-describe('DayDetailComponent', () => {
-  let component: DayDetailComponent;
-  let fixture: ComponentFixture<DayDetailComponent>;
+describe('OnlinePaymentComponent', () => {
+  let component: OnlinePaymentComponent;
+  let fixture: ComponentFixture<OnlinePaymentComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DayDetailComponent ]
+      declarations: [ OnlinePaymentComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DayDetailComponent);
+    fixture = TestBed.createComponent(OnlinePaymentComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

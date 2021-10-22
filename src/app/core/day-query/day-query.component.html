@@ -1,7 +1,31 @@
 <mat-card *ngIf="isTouched; else elseBlock">
-  <mat-card-title *ngIf="!isDisabled; else spinnerBlock">{{
-    dayData.month
-  }}</mat-card-title>
+  <mat-card-title
+    [ngClass]="'center-text'"
+    *ngIf="!isDisabled; else spinnerBlock"
+  >
+    {{ dayData.weekday }} {{ dayData.day }} {{ dayData.month }}
+    {{ dayData.year }}
+  </mat-card-title>
+  <mat-tab-group mat-stretch-tabs>
+    <mat-tab
+      *ngFor="let timeframe of dayData?.timeframes | keyvalue"
+      label="{{ timeframe.key }}"
+    >
+      <div [ngClass]="'timeframe-content'">
+        <mat-card-subtitle [ngClass]="'center-text'"
+          >Max Spaces: {{ maxPeople }}</mat-card-subtitle
+        >
+        <mat-card-subtitle [ngClass]="'center-text'"
+          >Free Spaces: {{ timeframe.value }}</mat-card-subtitle
+        >
+      </div>
+      <mat-card-actions *ngIf="timeframe.value !== 0">
+        <button (click)="navigateToReservation(timeframe)" mat-raised-button>
+          RESERVE
+        </button>
+      </mat-card-actions>
+    </mat-tab>
+  </mat-tab-group>
   <ng-template #spinnerBlock>
     <mat-spinner></mat-spinner>
   </ng-template>
@@ -9,6 +33,8 @@
 
 <ng-template #elseBlock>
   <mat-card>
-    <mat-card-title>No day has been selected</mat-card-title>
+    <mat-card-title [ngClass]="'center-text'"
+      >No day has been selected</mat-card-title
+    >
   </mat-card>
 </ng-template>

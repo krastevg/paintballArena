@@ -35,6 +35,7 @@ export class CalendarComponent implements OnInit {
       next: (response) => {
         console.log(response);
         this.selectedDay = response;
+        this.calendarService.selectedDay = response; // maybe comment this out
         this.isDisabled = false;
       },
       error: (err) => {

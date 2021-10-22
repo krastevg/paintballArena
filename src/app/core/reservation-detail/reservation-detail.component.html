@@ -1,0 +1,101 @@
+<div class="container">
+  <app-loading *ngIf="isLoading; else elseBlock"></app-loading>
+  <ng-template #elseBlock>
+    <div class="dateDiv">
+      <h2>
+        {{ dayData.weekday }} {{ dayData.day }} {{ dayData.month }}
+        {{ dayData.year }} at {{ timeframe.key }}
+      </h2>
+    </div>
+
+    <form class="register" [formGroup]="form" (ngSubmit)="submitHandler()">
+      <div class="field">
+        <label for="people">People:</label>
+        <select
+          [class.input-error]="
+            form.get('people').touched && form.get('people').errors?.required
+          "
+          name="people"
+          id="people"
+          formControlName="people"
+        >
+          <option *ngFor="let option of options" [ngValue]="option">
+            {{ option }}
+          </option>
+        </select>
+      </div>
+      <p
+        *ngIf="
+          form.get('people').touched && form.get('people').errors?.required
+        "
+        class="error"
+      >
+        Please chose the number of people you wish to make a reservation for!
+      </p>
+      <p>Does gear need to be provided ?</p>
+      <div class="radio-buttons">
+        <div class="option">
+          <input
+            type="radio"
+            id="haveGear"
+            name="gear"
+            formControlName="gear"
+            value="false"
+          />
+          <label for="haveGear"
+            >No gear needs to be provided - {{ price[false] }} leva per
+            person</label
+          >
+        </div>
+        <div class="option">
+          <input
+            type="radio"
+            id="noGear"
+            name="gear"
+            formControlName="gear"
+            value="true"
+          />
+          <label for="noGear"
+            >Gear needs to be provided - {{ price[true] }} leva per
+            person</label
+          >
+        </div>
+      </div>
+      <br />
+      <p>Payment Method</p>
+      <div class="radio-buttons">
+        <div class="option">
+          <input
+            type="radio"
+            id="payInPerson"
+            name="payment"
+            formControlName="payment"
+            value="inPerson"
+          />
+          <label for="payInPerson">Pay in person</label>
+        </div>
+        <div class="option">
+          <input
+            type="radio"
+            id="payOnline"
+            name="payment"
+            formControlName="payment"
+            value="online"
+          />
+          <label for="payOnline">Online Payment</label>
+        </div>
+      </div>
+      <br />
+      <div class="price">
+        Price:
+        {{ form.get("people").value * price[form.get("gear").value] || 0 }} leva
+      </div>
+
+      <button class="btn" [disabled]="form.invalid || isLoading">
+        Reserve
+      </button>
+      <p *ngIf="!!apiError" class="error">{{ apiError }}</p>
+    </form>
+    {{ form.value | json }}
+  </ng-template>
+</div>

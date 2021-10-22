@@ -5,7 +5,8 @@ export interface IReservation {
   day: IDay;
   price: number;
   user: string;
-  hours: string;
+  timeframe: string;
+  gear: boolean;
   people: number;
   _id: string;
   __v: string;

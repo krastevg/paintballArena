@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CalendarComponent } from './core/calendar/calendar.component';
-import { DayDetailComponent } from './core/day-detail/day-detail.component';
+import { ReservationDetailComponent } from './core/reservation-detail/reservation-detail.component';
 import { HomeComponent } from './core/home/home.component';
 import { LoginComponent } from './core/login/login.component';
 import { NotfoundComponent } from './core/notfound/notfound.component';
@@ -9,6 +9,7 @@ import { ProfileComponent } from './core/profile/profile.component';
 import { RegisterComponent } from './core/register/register.component';
 import { AuthGuard } from './guards/auth.guard';
 import { NoAuthGuard } from './guards/noAuth.guard';
+import { OnlinePaymentComponent } from './core/online-payment/online-payment.component';
 
 const routes: Routes = [
   {
@@ -32,8 +33,8 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
-    path: 'details/:id',
-    component: DayDetailComponent,
+    path: 'reserve/:id',
+    component: ReservationDetailComponent,
     canActivate: [AuthGuard],
   },
 
@@ -47,6 +48,11 @@ const routes: Routes = [
     path: 'register',
     component: RegisterComponent,
     canActivate: [NoAuthGuard],
+  },
+  {
+    path: 'pay',
+    component: OnlinePaymentComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: '**',

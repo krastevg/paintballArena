@@ -3,7 +3,7 @@ export interface IDay {
   weekday: string;
   month: string;
   year: number;
-  timeframes: number[];
+  timeframes: object[];
   reservationsMade: string[];
   _id: string;
   __v: string;

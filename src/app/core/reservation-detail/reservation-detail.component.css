@@ -1,7 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap");
-
 * {
-  font-family: "Orbitron", sans-serif;
   color: rgb(238, 138, 15);
 }
 
@@ -58,4 +55,16 @@ h2 {
 
 .error {
   color: red;
+}
+
+.option {
+  display: block;
+}
+.radio-buttons {
+  border: 0.2rem solid white;
+  border-radius: 5px;
+  padding: 1rem;
+}
+.price {
+  margin-bottom: 1em;
 }

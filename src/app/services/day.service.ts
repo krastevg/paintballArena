@@ -8,8 +8,6 @@ import { environment } from '../../environments/environment';
   providedIn: 'root',
 })
 export class DayService {
-  // `${environment.apiUrl}/day?dayId=xxxxxx` get
-  // `${environment.apiUrl}/day/xxxxxx?type=update/delete&frame=firstFrame/secondFrame/thirdFrame` patch
   date: Date;
   constructor(private http: HttpClient) {
     this.date = new Date();

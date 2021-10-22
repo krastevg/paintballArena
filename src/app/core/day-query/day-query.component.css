@@ -6,3 +6,21 @@ mat-card {
 mat-spinner {
   margin: 0 auto;
 }
+
+.center-text {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.timeframe-content {
+  padding: 1rem;
+}
+
+mat-card-actions {
+  margin: 0 auto;
+  width: 50%;
+}
+
+mat-card-actions > button {
+  margin-left: 35% !important;
+}
