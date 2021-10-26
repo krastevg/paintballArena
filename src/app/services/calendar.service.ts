@@ -3,13 +3,14 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IDay } from '../interfaces/day';
 import { environment } from '../../environments/environment';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CalendarService {
   selectedDay: IDay;
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private userService: UserService) {}
 
   getDay(date: Date): Observable<IDay> {
     const requestBody = {
@@ -19,6 +20,9 @@ export class CalendarService {
       weekday: date.toLocaleString('en-GB', { weekday: 'long' }),
       day: date.toLocaleString('en-GB', { day: 'numeric' }),
     };
-    return this.http.post<IDay>(`${environment.apiUrl}/days`, requestBody);
+    return this.http.post<IDay>(
+      `${environment.apiUrl}/days?userId=${this.userService.currentUser.id}`,
+      requestBody
+    );
   }
 }

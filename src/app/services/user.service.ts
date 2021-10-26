@@ -41,7 +41,7 @@ export class UserService {
 
   async checkAuth(): Promise<any> {
     return await this.http
-      .get(`${this.apiString}/user/checkAuth`, {
+      .get(`${this.apiString}/user/checkAuth?userId=${this.currentUser.id}`, {
         withCredentials: true,
       })
       .toPromise();
