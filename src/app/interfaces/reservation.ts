@@ -8,6 +8,7 @@ export interface IReservation {
   timeframe: string;
   gear: boolean;
   people: number;
+  status: string;
   _id: string;
   __v: string;
 }

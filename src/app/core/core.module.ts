@@ -14,6 +14,7 @@ import { LoadingComponent } from './loading/loading.component';
 import { MaterialModule } from '../material/material.module';
 import { DayQueryComponent } from './day-query/day-query.component';
 import { OnlinePaymentComponent } from './online-payment/online-payment.component';
+import { ProfileTableComponent } from './profile-table/profile-table.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { OnlinePaymentComponent } from './online-payment/online-payment.componen
     LoadingComponent,
     DayQueryComponent,
     OnlinePaymentComponent,
+    ProfileTableComponent,
   ],
   imports: [
     CommonModule,

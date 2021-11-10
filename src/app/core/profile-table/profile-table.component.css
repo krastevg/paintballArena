@@ -1,0 +1,26 @@
+table {
+  width: 80%;
+  margin: 0 auto;
+}
+
+th,
+td {
+  text-align: center !important;
+}
+
+.cancel-btn {
+  background-color: red;
+  border: black solid;
+  cursor: pointer;
+  margin: 0 auto;
+  width: 100px;
+  color: black;
+}
+
+.complete {
+  color: green;
+}
+
+.canceled {
+  color: red;
+}

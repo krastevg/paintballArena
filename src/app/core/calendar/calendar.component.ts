@@ -15,7 +15,9 @@ export class CalendarComponent implements OnInit {
   isTouched: boolean;
   constructor(private calendarService: CalendarService) {
     this.isLoading = true;
+    const today = new Date();
     this.minDate = new Date(); // should return today's date
+    this.minDate.setDate(today.getDate() + 1);
     this.isTouched = false;
   }
 

@@ -2,7 +2,7 @@
 
 <ng-template #elseBlock class="container">
   <h1>{{ userService.currentUser.email }}`s profile</h1>
-  <div class="Rtable Rtable--4cols">
+  <!-- <div class="Rtable Rtable--4cols">
     <div class="Rtable-cell"><h2>DATE</h2></div>
     <div class="Rtable-cell"><h2>HOURS</h2></div>
     <div class="Rtable-cell"><h2>NUMBER OF PEOPLE</h2></div>
@@ -40,5 +40,6 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
+  <app-profile-table [reservations]="reservations"></app-profile-table>
 </ng-template>

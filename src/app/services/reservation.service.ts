@@ -23,9 +23,9 @@ export class ReservationService {
     );
   }
 
-  getReservation(userId): Observable<IReservation[]> {
+  getReservation(): Observable<IReservation[]> {
     return this.http.get<IReservation[]>(
-      `${environment.apiUrl}/reservation/getByUser/${userId}`
+      `${environment.apiUrl}/reservations/?userId=${this.userService.currentUser.id}`
     );
   }
 
