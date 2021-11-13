@@ -54,5 +54,6 @@
     <button class="btn" [disabled]="form.invalid || isLoading">Login</button>
 
     <p *ngIf="!!apiError" class="error">{{ apiError }}</p>
+    <p><a routerLink="/reset">Forgot password?</a></p>
   </form>
 </div>

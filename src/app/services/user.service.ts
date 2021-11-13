@@ -60,4 +60,11 @@ export class UserService {
       formData
     );
   }
+
+  resetPassword(formData): Observable<any> {
+    return this.http.post(
+      `${this.apiString}/user/${formData.email}/resetpassword`,
+      formData
+    );
+  }
 }

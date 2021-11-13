@@ -10,6 +10,7 @@ import { RegisterComponent } from './core/register/register.component';
 import { AuthGuard } from './guards/auth.guard';
 import { NoAuthGuard } from './guards/noAuth.guard';
 import { OnlinePaymentComponent } from './core/online-payment/online-payment.component';
+import { PasswordResetComponent } from './core/password-reset/password-reset.component';
 
 const routes: Routes = [
   {
@@ -53,6 +54,11 @@ const routes: Routes = [
     path: 'pay',
     component: OnlinePaymentComponent,
     canActivate: [AuthGuard],
+  },
+  {
+    path: 'reset',
+    component: PasswordResetComponent,
+    canActivate: [NoAuthGuard],
   },
   {
     path: '**',

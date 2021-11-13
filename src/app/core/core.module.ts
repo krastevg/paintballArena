@@ -18,6 +18,7 @@ import { ProfileTableComponent } from './profile-table/profile-table.component';
 import { ProfileInfoPasswordComponent } from './profile-info-password/profile-info-password.component';
 import { ProfileInfoComponent } from './profile-info/profile-info.component';
 import { ProfileInfoEmailComponent } from './profile-info-email/profile-info-email.component';
+import { PasswordResetComponent } from './password-reset/password-reset.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { ProfileInfoEmailComponent } from './profile-info-email/profile-info-ema
     ProfileInfoPasswordComponent,
     ProfileInfoComponent,
     ProfileInfoEmailComponent,
+    PasswordResetComponent,
   ],
   imports: [
     CommonModule,
