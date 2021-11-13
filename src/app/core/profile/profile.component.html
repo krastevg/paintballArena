@@ -1,45 +1,17 @@
 <app-loading *ngIf="isLoading; else elseBlock"></app-loading>
 
-<ng-template #elseBlock class="container">
+<ng-template #elseBlock>
   <h1>{{ userService.currentUser.email }}`s profile</h1>
-  <!-- <div class="Rtable Rtable--4cols">
-    <div class="Rtable-cell"><h2>DATE</h2></div>
-    <div class="Rtable-cell"><h2>HOURS</h2></div>
-    <div class="Rtable-cell"><h2>NUMBER OF PEOPLE</h2></div>
-    <div class="Rtable-cell-two">
-      PRICE
-      <div class="fillColor">CANCEL</div>
-    </div>
-    <div class="Rtable-cell-full" *ngFor="let reservation of reservations">
-      <div class="inside">
-        <h3>
-          {{ reservation.day.date }}({{ reservation.day.dayOfWeek }})-{{
-            reservation.day.month
-          }}-{{ reservation.day.year }}
-        </h3>
-      </div>
-      <div class="inside">
-        <h3>{{ reservation.hours }}</h3>
-      </div>
-      <div class="inside">
-        <h3>{{ reservation.people }}</h3>
-      </div>
-      <div class="inside-two">
-        <h3>{{ reservation.price }}</h3>
-        <div
-          class="cancel-btn"
-          (click)="
-            deleteHandler(
-              reservation._id,
-              reservation.day._id,
-              reservation.hours
-            )
-          "
-        >
-          Cancel
-        </div>
-      </div>
-    </div>
-  </div> -->
-  <app-profile-table [reservations]="reservations"></app-profile-table>
+  <mat-tab-group
+    mat-align-tabs="center"
+    [ngClass]="'container'"
+    animationDuration="0ms"
+  >
+    <mat-tab label="My Profile">
+      <app-profile-info></app-profile-info>
+    </mat-tab>
+    <mat-tab label="My Reservations">
+      <app-profile-table></app-profile-table>
+    </mat-tab>
+  </mat-tab-group>
 </ng-template>

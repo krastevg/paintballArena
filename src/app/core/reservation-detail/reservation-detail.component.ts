@@ -54,7 +54,7 @@ export class ReservationDetailComponent implements OnInit {
     const formData = this.form.value;
     formData.dayId = this.dayData._id;
     formData.price = Number(formData.people) * this.price[formData.gear];
-    // formData.user = this.userService.currentUser.id;
+    formData.user = this.userService.currentUser.id;
     formData.timeframe = this.timeframe.key;
     formData.priceWithGear = this.price['true'];
     formData.priceNoGear = this.price['false'];
@@ -73,6 +73,7 @@ export class ReservationDetailComponent implements OnInit {
       error: (err) => {
         console.log(err);
         this.apiError = err;
+        this.router.navigate(['/home']);
       },
     });
   }

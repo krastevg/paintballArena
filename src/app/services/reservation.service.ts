@@ -18,14 +18,14 @@ export class ReservationService {
 
   createReservation(data): Observable<any> {
     return this.http.post<IReservation>(
-      `${environment.apiUrl}/reservations?userId=${this.userService.currentUser.id}`,
+      `${environment.apiUrl}/reservations`,
       data
     );
   }
 
   getReservation(): Observable<IReservation[]> {
     return this.http.get<IReservation[]>(
-      `${environment.apiUrl}/reservations/?userId=${this.userService.currentUser.id}`
+      `${environment.apiUrl}/reservations?userId=${this.userService.currentUser.id}`
     );
   }
 
@@ -45,5 +45,12 @@ export class ReservationService {
           )
         )
       );
+  }
+
+  cancelReservation(reservationId): Observable<any> {
+    return this.http.patch(
+      `${environment.apiUrl}/reservations/${reservationId}`,
+      { status: 'canceled' }
+    );
   }
 }

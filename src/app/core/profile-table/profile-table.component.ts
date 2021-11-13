@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IReservation } from 'src/app/interfaces/reservation';
+import { ReservationService } from 'src/app/services/reservation.service';
 
 @Component({
   selector: 'app-profile-table',
@@ -8,13 +10,32 @@ import { IReservation } from 'src/app/interfaces/reservation';
 })
 export class ProfileTableComponent implements OnInit {
   displayedColumns: string[] = ['day', 'timeframe', 'price', '_id'];
-  @Input() reservations: IReservation[];
+  reservations: IReservation[];
 
-  constructor() {}
+  constructor(private reservationService: ReservationService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.reservationService.getReservation().subscribe({
+      next: (data) => {
+        this.reservations = data;
+        console.log(this.reservations);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  }
 
-  deleteHandler(id): void {
-    console.log(id);
+  cancelHandler(id): void {
+    this.reservationService.cancelReservation(id).subscribe({
+      next: (response) => {
+        console.log(response);
+        this.ngOnInit();
+      },
+      error: (err) => {
+        console.log(err);
+        alert('Cancel FAILED');
+      },
+    });
   }
 }

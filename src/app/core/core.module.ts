@@ -15,6 +15,9 @@ import { MaterialModule } from '../material/material.module';
 import { DayQueryComponent } from './day-query/day-query.component';
 import { OnlinePaymentComponent } from './online-payment/online-payment.component';
 import { ProfileTableComponent } from './profile-table/profile-table.component';
+import { ProfileInfoPasswordComponent } from './profile-info-password/profile-info-password.component';
+import { ProfileInfoComponent } from './profile-info/profile-info.component';
+import { ProfileInfoEmailComponent } from './profile-info-email/profile-info-email.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +33,9 @@ import { ProfileTableComponent } from './profile-table/profile-table.component';
     DayQueryComponent,
     OnlinePaymentComponent,
     ProfileTableComponent,
+    ProfileInfoPasswordComponent,
+    ProfileInfoComponent,
+    ProfileInfoEmailComponent,
   ],
   imports: [
     CommonModule,

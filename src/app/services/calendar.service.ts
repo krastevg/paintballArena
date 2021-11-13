@@ -20,9 +20,6 @@ export class CalendarService {
       weekday: date.toLocaleString('en-GB', { weekday: 'long' }),
       day: date.toLocaleString('en-GB', { day: 'numeric' }),
     };
-    return this.http.post<IDay>(
-      `${environment.apiUrl}/days?userId=${this.userService.currentUser.id}`,
-      requestBody
-    );
+    return this.http.post<IDay>(`${environment.apiUrl}/days`, requestBody);
   }
 }

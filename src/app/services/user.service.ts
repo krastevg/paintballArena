@@ -41,7 +41,7 @@ export class UserService {
 
   async checkAuth(): Promise<any> {
     return await this.http
-      .get(`${this.apiString}/user/checkAuth?userId=${this.currentUser.id}`, {
+      .get(`${this.apiString}/user/checkAuth`, {
         withCredentials: true,
       })
       .toPromise();
@@ -52,5 +52,12 @@ export class UserService {
     this.currentUser = null;
     this.cookieService.delete('paint');
     this.router.navigate(['/login']);
+  }
+
+  changePassword(formData): Observable<any> {
+    return this.http.patch(
+      `${this.apiString}/user/${this.currentUser.id}/changepassword`,
+      formData
+    );
   }
 }
