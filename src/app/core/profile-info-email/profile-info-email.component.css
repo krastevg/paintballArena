@@ -1,0 +1,64 @@
+* {
+  color: rgb(238, 138, 15);
+}
+:host /deep/ .material-icons {
+  font-family: "Material Icons" !important;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.error-msg {
+  color: red;
+}
+
+.success-msg {
+  color: green;
+}
+
+h3 {
+  text-align: center;
+}
+
+.btn {
+  width: 100%;
+  background-color: rgb(238, 138, 15);
+  color: black;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: black;
+  color: white;
+}
+.btn[disabled] {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+.invalid-control {
+  box-shadow: 0px 0px 5px 4px red;
+}
+
+.nav-btns {
+  width: 40%;
+  margin: 0 auto;
+}
+
+.msg {
+  margin: 0 auto;
+}

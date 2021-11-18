@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { IUser } from '../interfaces/user';
 import { environment } from '../../environments/environment';
@@ -66,5 +66,25 @@ export class UserService {
       `${this.apiString}/user/${formData.email}/resetpassword`,
       formData
     );
+  }
+
+  sendEmailChangeCode(): Observable<any> {
+    return this.http.post(
+      `${this.apiString}/user/${this.currentUser.id}/emailcode`,
+      {}
+    );
+  }
+
+  emailChange(formData): Observable<any> {
+    return this.http
+      .patch(`${this.apiString}/user/${this.currentUser.id}/emailchange`, {
+        code: formData.code,
+        newEmail: formData.email,
+      })
+      .pipe(
+        tap((obj) => {
+          this.currentUser = obj.user || this.currentUser;
+        })
+      );
   }
 }

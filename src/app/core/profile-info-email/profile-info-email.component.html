@@ -1,1 +1,126 @@
-<p>profile-info-email works!</p>
+<form [formGroup]="myForm" (ngSubmit)="submitHandler()">
+  <mat-horizontal-stepper linear>
+    <mat-step
+      label="Send Verification Code"
+      [completed]="sentCode && codeMessage === 'Email change code sent!'"
+    >
+      <div *ngIf="!sentCode; else elseBlock">
+        <h3>A verification code will be sent to your inbox</h3>
+        <button
+          class="btn"
+          type="button"
+          [disabled]="sentCode || isLoading"
+          (click)="sendCode()"
+        >
+          Send Code
+        </button>
+      </div>
+
+      <ng-template #elseBlock>
+        <h3
+          [ngClass]="{
+            'error-msg': codeMessage !== 'Email change code sent!',
+            'success-msg': codeMessage === 'Email change code sent!'
+          }"
+        >
+          {{ codeMessage }}
+        </h3>
+      </ng-template>
+
+      <div class="nav-btns">
+        <button
+          class="btn"
+          type="button"
+          [disabled]="!sentCode || codeMessage !== 'Email change code sent!'"
+          matStepperNext
+        >
+          Next
+        </button>
+      </div>
+    </mat-step>
+    <mat-step
+      label="Enter Verification Code"
+      [stepControl]="myForm.get('code')"
+    >
+      <h3>Please enter the verification code</h3>
+      <input
+        type="text"
+        id="code"
+        placeholder="XXXXXXXXXXXX"
+        formControlName="code"
+        [ngClass]="{
+          'invalid-control':
+            myForm.get('code').touched && !myForm.get('code').valid,
+          control: true
+        }"
+      />
+      <p
+        class="error-msg"
+        *ngIf="myForm.get('code').touched && !myForm.get('code').valid"
+      >
+        Code must be 12 symbols long!
+      </p>
+      <div class="nav-btns">
+        <button
+          class="btn"
+          [disabled]="!myForm.get('code').valid"
+          type="button"
+          matStepperNext
+        >
+          Next
+        </button>
+      </div>
+    </mat-step>
+    <mat-step label="Enter new Email address">
+      <h3>Please enter your new email address</h3>
+      <input
+        type="email"
+        id="email"
+        placeholder="example@example.com"
+        formControlName="email"
+        [ngClass]="{
+          'invalid-control':
+            myForm.get('email').touched && !myForm.get('email').valid,
+          control: true
+        }"
+      />
+      <p
+        class="error-msg"
+        *ngIf="myForm.get('email').touched && !myForm.get('email').valid"
+      >
+        Please enter a valid email address
+      </p>
+      <button
+        class="btn"
+        type="submit"
+        [disabled]="myForm.invalid || isLoading"
+      >
+        Change Email
+      </button>
+      <p
+        [ngClass]="{
+          'success-msg': true,
+          msg: true
+        }"
+        *ngIf="
+          !!message && message === 'Email updated successfully!';
+          else msgBlock
+        "
+      >
+        {{ message }} You will be redirected in a moment!
+      </p>
+
+      <ng-template #msgBlock>
+        <p
+          *ngIf="!!message && message !== 'Email updated successfully!'"
+          [ngClass]="{
+            'error-msg': true,
+            msg: true
+          }"
+        >
+          {{ message }}
+        </p>
+      </ng-template>
+    </mat-step>
+  </mat-horizontal-stepper>
+</form>
