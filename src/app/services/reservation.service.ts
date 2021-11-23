@@ -29,24 +29,6 @@ export class ReservationService {
     );
   }
 
-  deleteReservation(reservationId, dayid, frame): Observable<any> {
-    return this.http
-      .delete<IReservation>(
-        `${environment.apiUrl}/reservation/delete/${reservationId}`
-      )
-      .pipe(
-        tap((res) => console.log('from Service', res)),
-        concatMap((res: IReservation) =>
-          this.http.patch(
-            `${environment.apiUrl}/day/${dayid}?type=delete&frame=${frame}`,
-            {
-              reservId: res._id,
-            }
-          )
-        )
-      );
-  }
-
   cancelReservation(reservationId): Observable<any> {
     return this.http.patch(
       `${environment.apiUrl}/reservations/${reservationId}`,

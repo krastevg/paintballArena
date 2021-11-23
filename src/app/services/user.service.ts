@@ -48,7 +48,6 @@ export class UserService {
   }
 
   logout(): void {
-    console.log('im called !');
     this.currentUser = null;
     this.cookieService.delete('paint');
     this.router.navigate(['/login']);

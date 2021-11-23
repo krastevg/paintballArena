@@ -9,16 +9,12 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { ReservationDetailComponent } from './reservation-detail/reservation-detail.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
-import { ProfileComponent } from './profile/profile.component';
 import { LoadingComponent } from './loading/loading.component';
 import { MaterialModule } from '../material/material.module';
 import { DayQueryComponent } from './day-query/day-query.component';
 import { OnlinePaymentComponent } from './online-payment/online-payment.component';
-import { ProfileTableComponent } from './profile-table/profile-table.component';
-import { ProfileInfoPasswordComponent } from './profile-info-password/profile-info-password.component';
-import { ProfileInfoComponent } from './profile-info/profile-info.component';
-import { ProfileInfoEmailComponent } from './profile-info-email/profile-info-email.component';
 import { PasswordResetComponent } from './password-reset/password-reset.component';
+import { ProfileModule } from '../profile/profile.module';
 
 @NgModule({
   declarations: [
@@ -29,14 +25,9 @@ import { PasswordResetComponent } from './password-reset/password-reset.componen
     NotfoundComponent,
     ReservationDetailComponent,
     RegisterComponent,
-    ProfileComponent,
     LoadingComponent,
     DayQueryComponent,
     OnlinePaymentComponent,
-    ProfileTableComponent,
-    ProfileInfoPasswordComponent,
-    ProfileInfoComponent,
-    ProfileInfoEmailComponent,
     PasswordResetComponent,
   ],
   imports: [
@@ -45,6 +36,7 @@ import { PasswordResetComponent } from './password-reset/password-reset.componen
     ReactiveFormsModule,
     FormsModule,
     MaterialModule,
+    ProfileModule,
   ],
   exports: [
     HomeComponent,

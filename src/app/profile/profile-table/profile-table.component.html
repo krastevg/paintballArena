@@ -1,4 +1,9 @@
-<table mat-table [dataSource]="reservations" class="mat-elevation-z8">
+<table
+  *ngIf="reservations?.length > 0; else elseBlock"
+  mat-table
+  [dataSource]="reservations"
+  class="mat-elevation-z8"
+>
   <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
 
@@ -41,3 +46,9 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 </table>
+
+<ng-template #elseBlock>
+  <mat-card>
+    <h2>You have not made any reservations yet</h2>
+  </mat-card>
+</ng-template>

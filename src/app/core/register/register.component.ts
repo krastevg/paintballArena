@@ -48,7 +48,6 @@ export class RegisterComponent implements OnInit {
     this.userService.register(data).subscribe({
       next: (resData) => {
         this.isLoading = false;
-        console.log(resData);
         this.router.navigate(['/home']);
       },
       error: (err) => {

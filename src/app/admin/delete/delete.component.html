@@ -1,0 +1,33 @@
+<form [formGroup]="myForm" (ngSubmit)="submitHandler()">
+  <h1>Please enter the email of the account you wish to delete</h1>
+  <input
+    type="email"
+    id="email"
+    placeholder="example@example.com"
+    formControlName="email"
+    [ngClass]="{
+      'invalid-control':
+        myForm.get('email').touched && !myForm.get('email').valid,
+      control: true
+    }"
+  />
+  <p
+    class="error-msg"
+    *ngIf="myForm.get('email').touched && !myForm.get('email').valid"
+  >
+    Please enter a valid email address
+  </p>
+  <button class="btn" type="submit" [disabled]="myForm.invalid || isLoading">
+    Search
+  </button>
+  <p
+    [ngClass]="{
+      'success-msg': !isErr,
+      'error-msg': isErr,
+      msg: true
+    }"
+    *ngIf="!!message"
+  >
+    {{ message }}
+  </p>
+</form>

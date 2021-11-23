@@ -1,0 +1,49 @@
+<section
+  *ngIf="data.reservations.totalNumber > 0; else noData"
+  class="container"
+>
+  <h2 *ngIf="data.queryType === 'date'" class="heading">
+    Statistics for the period {{ data.startDate | date }} -
+    {{ data.endDate | date }}
+  </h2>
+  <h2 *ngIf="data.queryType === 'user'" class="heading">
+    Statistics for the user {{ data.forUser }}
+  </h2>
+  <article class="reservationData">
+    <h4>Total number of reservations: {{ data.reservations.totalNumber }}</h4>
+    <p class="canceled">
+      Total number of canceled reservations: {{ data.reservations.canceled }}
+    </p>
+    <p class="active">
+      Total number of active reservations: {{ data.reservations.active }}
+    </p>
+    <p class="complete">
+      Total number of complete reservations: {{ data.reservations.complete }}
+    </p>
+  </article>
+
+  <article class="payments">
+    <h4>
+      Total number of payments:
+      {{ data.payments.online + data.payments.inPerson }}
+    </h4>
+    <p>Online: {{ data.payments.online }}</p>
+    <p>In Person: {{ data.payments.inPerson }}</p>
+  </article>
+
+  <h2 class="total">Total Revenue: {{ data.totalRevenue }} leva</h2>
+</section>
+
+<ng-template #noData>
+  <article *ngIf="data.queryType === 'date'">
+    <h2 class="heading">
+      Statistics for the period {{ data.startDate | date }} -
+      {{ data.endDate | date }}
+    </h2>
+    <h2>No Reservations found for this period</h2>
+  </article>
+  <article *ngIf="data.queryType === 'user'">
+    <h2 class="heading">Statistics for the user {{ data.forUser }}</h2>
+    <h2>No Reservations found for this user</h2>
+  </article>
+</ng-template>

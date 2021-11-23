@@ -9,6 +9,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatTableModule } from '@angular/material/table';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatStepperModule } from '@angular/material/stepper';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 const MaterialComponents = [
   MatButtonModule,
@@ -21,6 +22,7 @@ const MaterialComponents = [
   MatTableModule,
   MatExpansionModule,
   MatStepperModule,
+  MatFormFieldModule,
 ];
 
 @NgModule({

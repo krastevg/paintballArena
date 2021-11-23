@@ -42,7 +42,6 @@ export class ProfileInfoEmailComponent implements OnInit {
     this.isLoading = true;
     this.userService.emailChange(this.myForm.value).subscribe({
       next: (data) => {
-        console.log(data);
         this.message = data.message;
         this.isLoading = false;
         setTimeout(() => {

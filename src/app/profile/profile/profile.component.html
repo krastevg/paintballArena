@@ -14,5 +14,12 @@
     <mat-tab label="My Profile">
       <app-profile-info></app-profile-info>
     </mat-tab>
+
+    <mat-tab
+      *ngIf="userService.currentUser.role === 'admin'"
+      label="Admin Panel"
+    >
+      <app-admin-panel></app-admin-panel>
+    </mat-tab>
   </mat-tab-group>
 </ng-template>

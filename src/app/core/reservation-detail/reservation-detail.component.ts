@@ -61,7 +61,6 @@ export class ReservationDetailComponent implements OnInit {
     this.isLoading = true;
     this.reservationService.createReservation(formData).subscribe({
       next: (response) => {
-        console.log(response);
         //if sucsesfull redirect
         this.isLoading = false;
         if (formData.payment === 'online') {

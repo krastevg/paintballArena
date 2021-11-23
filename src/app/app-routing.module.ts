@@ -5,7 +5,7 @@ import { ReservationDetailComponent } from './core/reservation-detail/reservatio
 import { HomeComponent } from './core/home/home.component';
 import { LoginComponent } from './core/login/login.component';
 import { NotfoundComponent } from './core/notfound/notfound.component';
-import { ProfileComponent } from './core/profile/profile.component';
+import { ProfileComponent } from './profile/profile/profile.component';
 import { RegisterComponent } from './core/register/register.component';
 import { AuthGuard } from './guards/auth.guard';
 import { NoAuthGuard } from './guards/noAuth.guard';

@@ -57,30 +57,11 @@
   height: 50vh;
   width: 60vw;
   padding-top: 10%;
-  display: inline;
+  display: flex;
   margin: 0 auto;
+  justify-content: center;
+  align-items: center;
 }
-/* .div-content-logged {
-  background: rgb(238, 138, 15);
-  color: black;
-  z-index: 2;
-  display: inline;
-  margin: 0 auto;
-  height: 400px;
-  padding-top: 10%;
-}
-
-.div-content-logged h1 {
-  background: rgb(238, 138, 15);
-  font-size: 50px;
-  margin-bottom: 0;
-}
-.div-content-logged p {
-  background: rgb(238, 138, 15);
-  font-size: 1.5rem;
-  display: block;
-  padding: 2rem;
-} */
 
 .infoBlock {
   background: rgb(238, 138, 15);

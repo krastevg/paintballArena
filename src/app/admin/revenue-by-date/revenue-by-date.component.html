@@ -1,0 +1,30 @@
+<h1>Please select a start and an end date</h1>
+<form [formGroup]="range" (ngSubmit)="submitHandler()">
+  <mat-form-field appearance="fill">
+    <mat-label>Enter a date range</mat-label>
+    <mat-date-range-input [rangePicker]="picker">
+      <input matStartDate formControlName="start" placeholder="Start date" />
+      <input matEndDate formControlName="end" placeholder="End date" />
+    </mat-date-range-input>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-date-range-picker #picker></mat-date-range-picker>
+  </mat-form-field>
+  <button class="btn" type="submit" [disabled]="range.invalid || isLoading">
+    Search
+  </button>
+</form>
+
+<div *ngIf="isLoading" class="spinnerBlock">
+  <mat-spinner></mat-spinner>
+</div>
+
+<section *ngIf="searchComplete && !isLoading">
+  <p *ngIf="!!message; else noError" class="error-msg">{{ message }}</p>
+
+  <ng-template #noError>
+    <app-statistic [data]="reqData"></app-statistic>
+    <app-admin-table
+      [reservations]="reqData.reservationsArray"
+    ></app-admin-table>
+  </ng-template>
+</section>

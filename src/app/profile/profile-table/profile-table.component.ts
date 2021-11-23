@@ -1,5 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { IReservation } from 'src/app/interfaces/reservation';
 import { ReservationService } from 'src/app/services/reservation.service';
 
@@ -18,7 +17,6 @@ export class ProfileTableComponent implements OnInit {
     this.reservationService.getReservation().subscribe({
       next: (data) => {
         this.reservations = data;
-        console.log(this.reservations);
       },
       error: (err) => {
         console.log(err);
@@ -29,7 +27,6 @@ export class ProfileTableComponent implements OnInit {
   cancelHandler(id): void {
     this.reservationService.cancelReservation(id).subscribe({
       next: (response) => {
-        console.log(response);
         this.ngOnInit();
       },
       error: (err) => {

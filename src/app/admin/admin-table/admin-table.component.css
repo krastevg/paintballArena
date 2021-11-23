@@ -1,0 +1,21 @@
+table {
+  margin: 0 auto;
+  width: 90%;
+}
+
+th,
+td {
+  text-align: center !important;
+}
+
+.active {
+  color: yellow;
+}
+
+.complete {
+  color: green;
+}
+
+.canceled {
+  color: red;
+}

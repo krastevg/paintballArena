@@ -35,7 +35,6 @@ export class CalendarComponent implements OnInit {
     // call service here and await it after the data is gathered send it to the day-query component
     this.calendarService.getDay(date).subscribe({
       next: (response) => {
-        console.log(response);
         this.selectedDay = response;
         this.calendarService.selectedDay = response; // maybe comment this out
         this.isDisabled = false;
