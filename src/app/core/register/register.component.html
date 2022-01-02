@@ -77,6 +77,31 @@
       Passwords should match
     </p>
 
+    <div class="field">
+      <label class="privacy" for="consentPrivacy"
+        >I have read and agree to the
+        <a href="#">Privacy Policy </a>
+      </label>
+      <input
+        type="checkbox"
+        name="consentPrivacy"
+        id="consentPrivacy"
+        formControlName="consentPrivacy"
+        [class.input-error]="
+          form.get('consentPrivacy').touched &&
+          form.get('consentPrivacy').errors
+        "
+      />
+    </div>
+
+    <p
+      *ngIf="
+        form.get('consentPrivacy').touched && form.get('consentPrivacy').errors
+      "
+      class="error"
+    >
+      You must accept the privacy policy in order to continue
+    </p>
     <button class="btn" [disabled]="form.invalid || isLoading">Register</button>
     <p *ngIf="!!apiError" class="error">{{ apiError }}</p>
     <p><a routerLink="/reset">Forgot password?</a></p>

@@ -39,6 +39,7 @@ export class RegisterComponent implements OnInit {
           rePasswordValidatorFactory(passwordControl),
         ],
       ],
+      consentPrivacy: [false, Validators.requiredTrue],
     });
   }
 

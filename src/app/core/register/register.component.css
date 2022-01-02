@@ -59,3 +59,15 @@ h2 {
 a {
   text-decoration: none;
 }
+
+.privacy > a {
+  text-decoration: underline;
+}
+
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  top: 5px;
+  left: 5px;
+}
