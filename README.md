@@ -6,7 +6,7 @@ This is an app that lets you make reservations for a paintball court. The reserv
 
 1.Clone the repository and run npm install \
 2.change backEnd api string in environments.ts \
-3.Start the server with ng serve \
+3.Start the server with ng serve 
 
 ##CLI
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
